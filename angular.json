@@ -15,11 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
+            "externalDependencies":[""],
             "outputPath": "dist/electron-app",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "index": "dist/electron-app/index.html",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -32,7 +33,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/_styles/global_styles.scss"
             ],
             "scripts": []
           },
@@ -98,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
